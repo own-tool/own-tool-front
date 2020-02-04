@@ -1,12 +1,12 @@
 <template>
   <div>
-    Hello.
+    Hello calendar.
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'CalendarGridPage',
   props: {
     msg: String
   }

@@ -1,12 +1,12 @@
 <template>
   <div>
-    Hello.
+    Hello notes.
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'NoteFolderListPage',
   props: {
     msg: String
   }
