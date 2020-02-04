@@ -79,8 +79,22 @@ export default {
         background-color: #dedede;
         position: relative;
 
-        padding-right: 2rem;
-        min-height: 5rem;
+        padding-right: 0rem;
+        /*min-height: 5rem;*/
+        /*height: calc(100vw / 7);*/
+    }
+
+    
+    .dayCell::before {
+      content: "";
+      float: left;
+      padding-bottom: 100%; /* aspect ratio */
+    }
+
+    .dayCell::after {
+      clear: left;
+      content: "";
+      display: table;
     }
 
 
@@ -93,8 +107,11 @@ export default {
     }
 
 
-    .dayCell.today {
-         background-color: #ffffff;
+    .dayCell.today .dayCell__day {
+        background: #cccccc;
+        /*border: 1px solid black;*/
+        padding: 0.1em 0.3em;
+
     }
 
     .dayCell .dayCell__monthName {

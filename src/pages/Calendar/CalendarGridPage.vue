@@ -82,6 +82,8 @@ export default {
   grid-gap: 1px;
   
 
+  
+
 }
 
 .calendarGrid__header {
