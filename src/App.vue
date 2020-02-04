@@ -5,7 +5,9 @@
       <router-link to="/calendar">Calendar</router-link> |
       <router-link to="/notes">Notes</router-link>
     </div>
-    <router-view/>
+    <transition>
+      <router-view/>
+    </transition>
   </div>
 </template>
 
@@ -14,7 +16,7 @@
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+
   color: #2c3e50;
 }
 
