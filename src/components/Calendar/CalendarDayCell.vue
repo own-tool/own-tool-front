@@ -146,5 +146,19 @@ export default {
         text-transform: uppercase;
     }
 
+    .dayCell:nth-child(70n+7) {
+        /*background: red;*/
+    }
+
+    @media print {
+        .dayCell {
+            background: white !important;
+        }
+
+        .dayCell:nth-child(70n+7) {
+            page-break-after: always;
+            break-after: always;
+        }
+    }
 
 </style>

@@ -20,12 +20,14 @@
       <div class="calendarGrid__header">Samedi</div>
       <div class="calendarGrid__header">Dimanche</div>
 
-    <template v-for="day in list" >
-      <CalendarDayCell :key="day.toString()" :day="day" />
+    <template v-for="(day,index) in list" >
+
+
+      <CalendarDayCell :key="day.toString()" :day="day" :class="{'firstDay' : index == 0}" />
     </template>
     </div>
 
-    <p><button>Next...</button></p>
+    <!-- p><button>Next...</button></p -->
     
   </div>
 </template>
@@ -52,7 +54,8 @@ export default {
 
   created() {
     this.today = new Date()
-    this.from = new Date(`${this.today.getUTCFullYear()}-01-01T00:00:00`)
+    //this.from = new Date(`${this.today.getUTCFullYear()}-01-01T00:00:00`)
+    this.from = new Date(this.today)
 
     //nearest monday 
     if (this.from.getDay() == 0) {
@@ -61,12 +64,13 @@ export default {
       this.from.setDate(this.from.getDate() - this.from.getDay() +1);
     }
 
-    this.to = new Date(`${this.today.getUTCFullYear()}-12-31T23:59:59`)
+    //this.to = new Date(`${this.today.getUTCFullYear()}-12-31T23:59:59`)
 
-    for(let i=0; i < 500; i++){
+    let dayCounter =0
+    
+    for(dayCounter; dayCounter < 7*10; dayCounter++){
       let anotherDay = new Date(this.from)
-      anotherDay.setDate(this.from.getDate() + i);
-
+      anotherDay.setDate(this.from.getDate() + dayCounter);
       this.list.push(anotherDay)
     }
 
@@ -81,9 +85,6 @@ export default {
   grid-template-columns: repeat(7, 1fr);
   grid-gap: 1px;
   
-
-  
-
 }
 
 .calendarGrid__header {
@@ -96,6 +97,17 @@ export default {
   text-transform: uppercase;
   font-weight: bold;
   overflow: hidden;
+}
+
+@media print {
+  .calendarGrid {
+    background: black;
+    color: black;
+  }
+
+  .calendarGrid__header {
+    background-color: white;
+  }
 }
 
 
